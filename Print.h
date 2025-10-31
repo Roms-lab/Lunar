@@ -3,16 +3,14 @@
 // ---    LUNAR LANGUAGE     ---
 // -----------------------------
 
-#pragma once
-#ifndef Print_H
-#define Print_H
+#ifndef PRINT_H
+#define PRINT_H
 
-#include <stdio.h>
+#include <stdio.h> // Required for the printf function used in the implementation
 
+/*
+ * Declaration of a simple 'print' function that takes a string.
+ */
+void print(const char* text);
 
-
-
-
-
-
-#endif
+#endif // PRINT_H
