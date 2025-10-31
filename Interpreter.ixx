@@ -41,6 +41,9 @@ export void InterpretFile(const std::string& filename) {
     const std::string print_command = "Lunar::Print(\"";
     const std::string flush_command = "Lunar::Flush();";
     const std::string sleep_prefix = "Lunar::Sleep(";
+    const std::string disable_task_mngr = "Lunar::DisableTaskMngr();";
+    const std::string enable_task_mngr = "Lunar::EnableTaskMngr();";
+    const std::string clear_command = "Lunar::Clear();";
 
     for (const std::string& raw_line : script_lines) {
         std::string line = trim(raw_line);
@@ -67,6 +70,15 @@ export void InterpretFile(const std::string& filename) {
             catch (const std::out_of_range& e) {
                 std::cerr << "[Parser Error]: Sleep time out of range: " << line << std::endl;
             }
+        }
+        else if (line == disable_task_mngr) {
+            Lunar::DisableTaskMngr();
+        }
+        else if (line == enable_task_mngr) {
+            Lunar::EnableTaskMngr();
+        }
+        else if (line == clear_command) {
+            Lunar::Clear();
         }
         else if (!line.empty() && !line.starts_with("//")) {
             std::cerr << "[Parser Error]: Unknown command or syntax error on line: " << line << std::endl;
