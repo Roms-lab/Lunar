@@ -57,6 +57,7 @@ export void InterpretFile(const std::string& filename) {
     const std::string write_file_prefix = "Lunar::WriteFile(";
     const std::string close_file_command = "Lunar::CloseFile();";
     const std::string read_file_prefix = "Lunar::ReadFile(";
+    const std::string lunar_v = "Lunar -v";
 
     for (const std::string& raw_line : script_lines) {
         std::string line = trim(raw_line);
@@ -107,6 +108,7 @@ export void InterpretFile(const std::string& filename) {
         else if (line == enable_task_mngr) { Lunar::EnableTaskMngr(); }
         else if (line == clear_command) { Lunar::Clear(); }
         else if (line == ip_command) { Lunar::Ip(); }
+        else if (line == lunar_v) { Lunar::Lunar_V(); }
 
         // --- START OF NEW FILE I/O LOGIC ---
         else if (line.starts_with(open_file_prefix) && line.ends_with(");")) {
