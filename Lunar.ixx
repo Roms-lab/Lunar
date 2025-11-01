@@ -70,4 +70,15 @@ namespace Lunar {
             system("clear");
         #endif
     }
+    
+    // Lunar Ip Adress Command
+    export inline void Ip() {
+        #ifdef _WIN32
+            system("ipconfig");
+        #elif defined(__APPLE__)
+            system("ipconfig");
+        #elif defined(__linux__)
+            system("ip address");
+        #endif
+    }
 }
